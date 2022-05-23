@@ -45,7 +45,7 @@ async function handleSearchTeanplates(data) {
 
 async function readStyles(folderFrom, bundleFolder) {
     const data = [];
-    const files = await fs.promises.readdir(folderFrom, { withFileTypes: true });
+    const files = (await fs.promises.readdir(folderFrom, { withFileTypes: true })).reverse();
     for (let file of files) {
         const filePath = path.join(folderFrom, file.name);
         const fileType = path.extname(file.name);
